@@ -1,0 +1,5 @@
+{
+  "name": "Customs AI Declarant",
+  "description": "AI-powered assistant that analyzes trade documents (Contract, Invoice, HS Code/Description, Packing List) and generates a compliant Chinese customs Excel declaration file.",
+  "requestFramePermissions": []
+}
