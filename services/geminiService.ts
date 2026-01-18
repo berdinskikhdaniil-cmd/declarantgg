@@ -12,7 +12,7 @@ export const analyzeDocuments = async (
     throw new Error("API Key is missing in environment variables.");
   }
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   // Prompt Engineering
   const systemInstruction = `
