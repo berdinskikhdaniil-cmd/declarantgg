@@ -16,8 +16,6 @@ export const analyzeDocuments = async (
     throw new Error("API Key is missing in environment variables. Check Netlify settings.");
   }
 
-  const apiKey = import.meta.env.VITE_API_KEY;
-
   // Prompt Engineering
   const systemInstruction = `
     You are an expert China Customs Broker and International Trade Specialist.
