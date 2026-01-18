@@ -7,14 +7,16 @@ export const analyzeDocuments = async (
   descText: string,
   packingText: string
 ): Promise<CustomsData> => {
+  
+// В браузере (Vite) ключи берутся через import.meta.env
+    // И они ОБЯЗАТЕЛЬНО должны начинаться на VITE_
+    const apiKey = import.meta.env.VITE_API_KEY;
 
-  // 1. Берем ключ правильным способом (для Vite)
-  const apiKey = import.meta.env.VITE_API_KEY;
+    if (!apiKey) {
+      throw new Error("API Key is missing. Check Netlify settings.");
+    }
 
-  // 2. Если ключа нет — только тогда ругаемся
-  if (!apiKey) {
-    throw new Error("API Key is missing in environment variables. Check Netlify settings.");
-  }
+    const ai = new GoogleGenAI({ apiKey });
 
   // Prompt Engineering
   const systemInstruction = `
